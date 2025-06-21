@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans leading-relaxed tracking-wide flex flex-col">
+
+  <%- include('../partials/nav') %>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
+    <p class="max-w-2xl mx-auto text-lg md:text-xl">
+      We are passionate about building a platform where ideas meet expression.
+    </p>
+  </section>
+
+  <!-- About Content -->
+  <section class="container mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <!-- Text -->
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Who We Are</h2>
+        <p class="text-gray-700 mb-4">
+          We are a team of developers, designers, and writers committed to building a powerful and user-friendly blog management system. Our platform makes it easy for individuals and organizations to share stories, insights, and inspiration.
+        </p>
+        <h3 class="text-2xl font-semibold mt-6 mb-2">Our Vision</h3>
+        <p class="text-gray-700">
+          To enable storytelling at scale through simplicity, speed, and creativity.
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div class="w-full">
+        <img src="https://source.unsplash.com/600x400/?technology,teamwork" alt="Our Team" class="rounded-xl shadow-lg w-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="bg-gray-100 py-16 px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Meet the Team</h2>
+      <p class="text-gray-600">Creative minds behind our blog platform</p>
+    </div>
+    <div class="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <% const team = [
+        { name: "Sudip Chaudhary", role: "Full-Stack Developer", image: "https://randomuser.me/api/portraits/men/75.jpg" },
+        { name: "Aarav Sharma", role: "UI/UX Designer", image: "https://randomuser.me/api/portraits/men/77.jpg" },
+        { name: "Sneha Karki", role: "Content Manager", image: "https://randomuser.me/api/portraits/women/79.jpg" }
+      ]; %>
+
+      <% team.forEach(member => { %>
+      <div class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition-shadow duration-300">
+        <img src="<%= member.image %>" alt="<%= member.name %>" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h3 class="text-xl font-semibold"><%= member.name %></h3>
+        <p class="text-gray-600"><%= member.role %></p>
+      </div>
+      <% }); %>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-indigo-600 text-white text-center py-16 px-6">
+    <h2 class="text-3xl font-bold mb-4">Join Our Journey</h2>
+    <p class="mb-6 max-w-2xl mx-auto">Whether you're a writer, reader, or creative enthusiast, our platform is for you.</p>
+    <a href="/contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-gray-100 transition">
+      Contact Us
+    </a>
+  </section>
+
+  <%- include('../partials/footer') %>
+
+</body>
+</html>

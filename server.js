@@ -208,6 +208,31 @@ app.post("/deleteBlog/:id", isLogInOrNot, async (req, res) => {
 });
 
 
+//about page 
+app.get("/about", isLogInOrNot, (req,res)=>{
+  res.render("page/about")
+})
+
+//contact page
+app.get('/contact',isLogInOrNot, (req, res) => {
+  res.render('page/contact');
+});
+
+
+// POST route for contact form
+app.post("/contact", isLogInOrNot, async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
+    await db.contacts.create({ name, email, message });
+    res.send("Thank you for contacting us!");
+  } catch (error) {
+    console.error("Contact Form Error:", error);
+    res.status(500).send("Something went wrong, please try again later.");
+  }
+});
+
+
+
 // logout page
 app.get("/logout", (req, res) => {
   res.clearCookie("token")

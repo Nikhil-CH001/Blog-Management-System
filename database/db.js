@@ -14,6 +14,7 @@ const sequelize = new Sequelize({
 const db = {}
 db.users = require("../models/userModel")(sequelize,DataTypes)
 db.blogs = require("../models/blogModel")(sequelize,DataTypes)
+db.contacts = require("../models/contactModel")(sequelize,DataTypes)
 
 db.users.hasMany(db.blogs)
 db.blogs.belongsTo(db.users)
