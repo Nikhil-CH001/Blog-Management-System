@@ -9,7 +9,10 @@ const makeBlogTable = (sequelize, DataTypes)=>{
         content : {
             type : DataTypes.STRING
         },
-        date : {
+        author : {
+            type : DataTypes.STRING
+        },
+        image : {
             type : DataTypes.STRING
         },
     })

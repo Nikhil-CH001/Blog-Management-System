@@ -40,26 +40,18 @@
                 <label for="image" class="block text-gray-700 font-semibold mb-2">Featured Image</label>
                 <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)"
                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <p class="text-sm text-gray-500 mt-1">Supported formats: JPG, PNG, GIF (max 5MB)</p>
+                <p class="text-sm text-gray-500 mt-1">Supported formats:JPEG, JPG, PNG, GIF (max 5MB)</p>
                 <img id="imagePreview" class="mt-2 max-h-48" style="display: none;">
             </div>
 
             <!-- Content -->
             <div class="mb-4">
                 <label for="content" class="block text-gray-700 font-semibold mb-2">Content</label>
-                <textarea id="content" name="content" required rows="8"
+                <textarea id="content" name="content" required 
                           class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="Write your blog content here"></textarea>
             </div>
-
-            <!-- Tags -->
-            <div class="mb-4">
-                <label for="tags" class="block text-gray-700 font-semibold mb-2">Tags (comma-separated)</label>
-                <input type="text" id="tags" name="tags"
-                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                       placeholder="e.g., web, development, technology">
-            </div>
-
+     
             <!-- Author -->
             <div class="mb-4">
                 <label for="author" class="block text-gray-700 font-semibold mb-2">Author</label>

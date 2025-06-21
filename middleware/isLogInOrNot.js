@@ -10,8 +10,8 @@ const isLogInOrNot = (req, res, next) => {
                 res.redirect("/login");
             } else {
                 req.userId = result.id;
-                req.user = result;
-                res.locals.user = result;  
+                req.username = result.username
+                res.locals.user = result.username
                 next();
             }
         });
