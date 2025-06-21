@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full flex flex-col min-h-screen bg-gray-100">
+    <%- include("../partials/nav") %>
+
+<!-- Hero Section with Image -->
+<section class="bg-gradient-to-r from-blue-100 to-blue-200 py-16 flex-grow p-4">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+    
+    <!-- Text Content -->
+    <div class="w-full lg:w-1/2 text-center lg:text-left">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 leading-tight">Welcome to BlogVerse</h1>
+      <p class="mt-4 text-gray-700 text-lg">Read stories. Share ideas. Inspire the world with your words.</p>
+      
+      <div class="mt-6 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+        <a href="/blog" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">Explore Blogs</a>
+        
+        <% if (!user) { %>
+          <a href="/blog" class="bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">Get Started</a>
+        <% } else { %>
+          <a href="/addBlog" class="bg-white border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">Write Blog</a>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="w-full lg:w-1/2">
+      <img src="https://cdn.pixabay.com/photo/2020/07/08/10/20/blogging-5382501_1280.png" alt="Hero Image" class="w-full max-w-md mx-auto">
+    </div>
+  </div>
+</section>
+
+
+<%- include("../partials/footer") %>
+
+</body>
+</html>

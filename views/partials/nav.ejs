@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigation Bar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {},
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+
+  <!-- Sticky Navbar -->
+  <nav class="sticky top-0 z-50 bg-black py-5 px-5">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <h2 class="text-white font-bold text-2xl">MyBlog</h2>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex space-x-10 text-base font-bold text-white">
+        <a href="/" class="hover:underline underline-offset-4 transition">Home</a>
+        <a href="/blog" class="hover:underline underline-offset-4 transition">Blog</a>
+        <a href="/about" class="hover:underline underline-offset-4 transition">About</a>
+        <a href="/contact" class="hover:underline underline-offset-4 transition">Contact</a>
+      </div>
+
+      <!-- Desktop Buttons -->
+      <div class="hidden lg:flex gap-x-2">
+          <% if (typeof user !== 'undefined' && !user) { %>
+            <a href="/register"> <button class="text-white px-6 py-2.5 font-semibold">Register</button> </a>
+            <a href="/login"> <button class="bg-[#4A3BFF] text-white px-6 py-2.5 rounded-md font-semibold hover:shadow-lg transition">Login</button> </a>
+          <% } else { %>
+            <a href="/dashboard"> <button class="text-white px-6 py-2.5 font-semibold">Dashboard</button> </a>
+            <a href="/logout"> <button class="bg-[#4A3BFF] text-white px-6 py-2.5 rounded-md font-semibold hover:shadow-lg transition">Logout</button> </a>
+          <% } %>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="lg:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <svg class="text-2xl" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 010 2h-6a1 1 0 01-1-1z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-black mt-2">
+      <ul class="flex flex-col space-y-4 px-5 py-4 text-base font-bold text-white/60">
+        <li><a href="/" class="block hover:underline">Home</a></li>
+        <li><a href="/blog" class="block hover:underline">Blog</a></li>
+        <li><a href="/about" class="block hover:underline">About</a></li>
+        <li><a href="/contact" class="block hover:underline">Contact</a></li>
+        <% if (typeof user !== 'undefined' && !user) { %>
+          <li><a href="/register"> <button class="text-white w-full text-left px-6 py-2.5 font-semibold">Sign up</button></a></li>
+          <li><a href="/login"> <button class="bg-[#4A3BFF] text-white w-full px-6 py-2.5 rounded-md font-semibold hover:shadow-lg transition">Login</button></a></li>
+        <% } else { %>
+          <li><a href="/dashboard"> <button class="text-white w-full text-left px-6 py-2.5 font-semibold">Dashboard</button></a></li>
+          <li><a href="/logout"> <button class="bg-[#4A3BFF] text-white w-full px-6 py-2.5 rounded-md font-semibold hover:shadow-lg transition">Logout</button></a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

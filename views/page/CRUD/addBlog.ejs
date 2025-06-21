@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 flex flex-col">
+    <%- include("../../partials/nav") %>
+
+    <section class="flex-grow container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Create a New Blog Post</h1>
+        
+        <form action="/addBlog" method="POST" enctype="multipart/form-data" class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <!-- Title -->
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700 font-semibold mb-2">Title</label>
+                <input type="text" id="title" name="title" required
+                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="Enter blog title">
+            </div>
+
+            <!-- Category -->
+            <div class="mb-4">
+                <label for="category" class="block text-gray-700 font-semibold mb-2">Category</label>
+                <select id="category" name="category"
+                        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Lifestyle">Lifestyle</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Food">Food</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <!-- Image Upload -->
+            <div class="mb-4">
+                <label for="image" class="block text-gray-700 font-semibold mb-2">Featured Image</label>
+                <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)"
+                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <p class="text-sm text-gray-500 mt-1">Supported formats: JPG, PNG, GIF (max 5MB)</p>
+                <img id="imagePreview" class="mt-2 max-h-48" style="display: none;">
+            </div>
+
+            <!-- Content -->
+            <div class="mb-4">
+                <label for="content" class="block text-gray-700 font-semibold mb-2">Content</label>
+                <textarea id="content" name="content" required rows="8"
+                          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Write your blog content here"></textarea>
+            </div>
+
+            <!-- Tags -->
+            <div class="mb-4">
+                <label for="tags" class="block text-gray-700 font-semibold mb-2">Tags (comma-separated)</label>
+                <input type="text" id="tags" name="tags"
+                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="e.g., web, development, technology">
+            </div>
+
+            <!-- Author -->
+            <div class="mb-4">
+                <label for="author" class="block text-gray-700 font-semibold mb-2">Author</label>
+                <input type="text" id="author" name="author" value="<%= user ? user.name : '' %>" readonly
+                       class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-700 transition">
+                    Publish Post
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <%- include("../../partials/footer") %>
+
+    <script>
+        function previewImage(event) {
+            const preview = document.getElementById('imagePreview');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>

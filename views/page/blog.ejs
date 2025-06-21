@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+    <%- include("../partials/nav") %>
+    <section class="max-w-6xl bg-white mx-auto px-4 py-16 sm:px-6 font-sans">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Latest Articles</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">Discover our latest insights, stories, and updates to help you stay informed and inspired.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 - Technology -->
+            <article class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Circuit board with technology components" 
+                     class="w-full h-52 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Technology</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 leading-tight">The Future of Web Development in 2023</h3>
+                    <p class="text-gray-600 mb-5 leading-relaxed">Explore the emerging trends and technologies that are shaping the future of web development this year.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-4">June 15, 2023</span>
+                        <span class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                                 alt="Sarah Johnson" 
+                                 class="w-6 h-6 rounded-full mr-2 object-cover">
+                            Sarah Johnson
+                        </span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 2 - Business -->
+            <article class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Business team meeting" 
+                     class="w-full h-52 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Business</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 leading-tight">5 Strategies for Growing Your Online Business</h3>
+                    <p class="text-gray-600 mb-5 leading-relaxed">Learn proven strategies to scale your online business and reach new customers effectively.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-4">June 10, 2023</span>
+                        <span class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                                 alt="Michael Chen" 
+                                 class="w-6 h-6 rounded-full mr-2 object-cover">
+                            Michael Chen
+                        </span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Blog Post 3 - Design -->
+            <article class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Designer working on wireframes" 
+                     class="w-full h-52 object-cover">
+                <div class="p-6">
+                    <span class="inline-block bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-3">Design</span>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 leading-tight">UX Design Principles for Better Conversions</h3>
+                    <p class="text-gray-600 mb-5 leading-relaxed">How applying fundamental UX principles can significantly improve your website's conversion rates.</p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="mr-4">June 5, 2023</span>
+                        <span class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                                 alt="Emma Rodriguez" 
+                                 class="w-6 h-6 rounded-full mr-2 object-cover">
+                            Emma Rodriguez
+                        </span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-colors duration-300">View All Articles</a>
+        </div>
+    </section>
+    <%- include("../partials/footer") %>
+</body>
+</html>
